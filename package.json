@@ -1,0 +1,27 @@
+{
+  "name": "eleventy-contentful-blog",
+  "version": "1.0.0",
+  "description": "A blog built with 11ty and Contentful",
+  "scripts": {
+    "start": "eleventy --serve",
+    "build": "eleventy"
+  },
+  "keywords": [
+    "eleventy",
+    "contentful",
+    "blog"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1",
+    "netlify-cli": "^23.12.3"
+  },
+  "dependencies": {
+    "@contentful/rich-text-html-renderer": "^17.1.6",
+    "contentful": "^10.6.21",
+    "dotenv": "^16.6.1",
+    "luxon": "^3.4.4",
+    "node-fetch": "^3.3.2"
+  }
+}
