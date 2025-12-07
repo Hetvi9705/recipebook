@@ -1,0 +1,380 @@
+/* ------------------------------
+   RESET + BASE STYLES
+------------------------------ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #2563eb;
+    --primary-gradient: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+    --secondary-color: #1e40af;
+    --text-color: #1f2937;
+    --text-light: #6b7280;
+    --bg-color: #ffffff;
+    --bg-secondary: #f8fafc;
+    --bg-gradient: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    --border-color: #e2e8f0;
+    --radius: 16px;
+    --radius-lg: 20px;
+    --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
+    --shadow-md: 0 8px 30px rgba(0,0,0,0.12);
+    --shadow-lg: 0 20px 50px rgba(0,0,0,0.15);
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body {
+    font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+    background: var(--bg-gradient);
+    color: var(--text-color);
+    line-height: 1.7;
+    padding: 40px 20px;
+    min-height: 100vh;
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* ------------------------------
+   GLOBAL CONTENT WIDTH
+------------------------------ */
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+/* ------------------------------
+   SINGLE POST PAGE
+------------------------------ */
+.single-post {
+    background: var(--bg-color);
+    padding: 40px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    position: relative;
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.single-post::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--primary-gradient);
+}
+
+.single-post:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg), 0 25px 60px rgba(37, 99, 235, 0.1);
+}
+
+.single-post h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-align: center;
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    position: relative;
+}
+
+.single-post h1::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: var(--primary-gradient);
+    margin: 20px auto;
+    border-radius: 2px;
+}
+
+/* Meta info */
+.meta {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    margin-bottom: 30px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.meta-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    background: var(--bg-secondary);
+    border-radius: 20px;
+    font-weight: 500;
+}
+
+.meta-item i {
+    font-size: 1.1em;
+}
+
+/* ------------------------------
+   CENTER FEATURED IMAGE
+------------------------------ */
+.single-post .featured-image {
+    display: block;
+    margin: 35px auto;
+    max-width: 90%;
+    height: auto;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    transition: var(--transition-slow);
+    position: relative;
+    overflow: hidden;
+}
+
+.single-post .featured-image:hover {
+    transform: scale(1.02);
+    box-shadow: var(--shadow-lg);
+}
+
+.single-post .featured-image::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, transparent 100%);
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.single-post .featured-image:hover::after {
+    opacity: 1;
+}
+
+/* ------------------------------
+   SECTION HEADINGS
+------------------------------ */
+.single-post h3 {
+    margin-top: 40px;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    color: var(--text-color);
+    position: relative;
+    padding-left: 20px;
+    font-weight: 700;
+}
+
+.single-post h3::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 24px;
+    background: var(--primary-gradient);
+    border-radius: 3px;
+}
+
+/* Paragraph content */
+.single-post p {
+    margin-bottom: 20px;
+    font-size: 1.08rem;
+    color: var(--text-color);
+    transition: var(--transition);
+}
+
+.single-post p:hover {
+    transform: translateX(5px);
+}
+
+/* ------------------------------
+   INGREDIENTS BLOCK
+------------------------------ */
+.ingredients {
+    background: linear-gradient(135deg, var(--bg-secondary) 0%, #f1f5f9 100%);
+    padding: 25px;
+    border-radius: var(--radius);
+    border: 1px solid var(--border-color);
+    margin-top: 15px;
+    position: relative;
+    transition: var(--transition);
+    border-left: 4px solid var(--primary-color);
+}
+
+.ingredients:hover {
+    transform: translateX(8px);
+    box-shadow: var(--shadow-md);
+}
+
+.ingredients::before {
+    content: '🍴';
+    position: absolute;
+    top: -12px;
+    left: 20px;
+    background: var(--bg-color);
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    box-shadow: var(--shadow-sm);
+}
+
+.ingredients p {
+    margin: 12px 0;
+    padding: 8px 0;
+    border-bottom: 1px dashed var(--border-color);
+    transition: var(--transition);
+    position: relative;
+    padding-left: 10px;
+}
+
+.ingredients p:last-child {
+    border-bottom: none;
+}
+
+.ingredients p:hover {
+    padding-left: 20px;
+    color: var(--primary-color);
+}
+
+.ingredients p::before {
+    content: '•';
+    color: var(--primary-color);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.ingredients p:hover::before {
+    opacity: 1;
+}
+
+/* ------------------------------
+   BODY CONTENT
+------------------------------ */
+.body-content {
+    background: linear-gradient(135deg, var(--bg-secondary) 0%, #f1f5f9 100%);
+    padding: 25px;
+    border-radius: var(--radius);
+    border: 1px solid var(--border-color);
+    position: relative;
+    transition: var(--transition);
+}
+
+.body-content:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+
+/* ------------------------------
+   ANIMATIONS
+------------------------------ */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* ------------------------------
+   RESPONSIVE DESIGN
+------------------------------ */
+@media (max-width: 768px) {
+    body {
+        padding: 20px 15px;
+    }
+    
+    .single-post {
+        padding: 25px 20px;
+    }
+    
+    .single-post h1 {
+        font-size: 2rem;
+    }
+    
+    .meta {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .single-post .featured-image {
+        max-width: 100%;
+        margin: 25px auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .single-post {
+        padding: 20px 15px;
+    }
+    
+    .single-post h1 {
+        font-size: 1.75rem;
+    }
+    
+    .ingredients, .body-content {
+        padding: 20px 15px;
+    }
+}
+
+/* ------------------------------
+   ACCESSIBILITY
+------------------------------ */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Focus styles for accessibility */
+.single-post:focus-within {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* ------------------------------
+   DARK MODE SUPPORT
+------------------------------ */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --text-color: #f8fafc;
+        --text-light: #cbd5e1;
+        --bg-color: #1e293b;
+        --bg-secondary: #334155;
+        --border-color: #475569;
+    }
+    
+    body {
+        background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    }
+}

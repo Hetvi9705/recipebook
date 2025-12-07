@@ -1,0 +1,117 @@
+<!-- src/_includes/header.njk -->
+<header>
+    <div class="nav-container">
+        <div class="logo">
+            <a href="/" style="text-decoration: none; color: inherit;">
+                My CookBook
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="/" class="{% if page.url == '/' %}active{% endif %}">Home</a></li>
+                <li><a href="/cooking-hacks/" class="{% if page.url == '/cooking-hacks/' %}active{% endif %}">Cooking Hacks</a></li>
+                <li><a href="/recipe-stories/" class="{% if page.url == '/recipe-stories/' %}active{% endif %}">Recipe Stories</a></li>
+                <li><a href="/about/" class="{% if page.url == '/about/' %}active{% endif %}">About</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<style>
+    /* Header Styles */
+    header {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        padding: 20px 0;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        box-shadow: var(--shadow-sm);
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .logo {
+        font-size: 1.8rem;
+        font-weight: 800;
+        background: var(--primary-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    nav ul {
+        display: flex;
+        list-style: none;
+        gap: 30px;
+        margin: 0;
+        padding: 0;
+    }
+
+    nav a {
+        text-decoration: none;
+        color: var(--text-color);
+        font-weight: 600;
+        padding: 8px 16px;
+        border-radius: 20px;
+        transition: var(--transition);
+    }
+
+    nav a:hover, nav a.active {
+        background: var(--primary-gradient);
+        color: white;
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+        .nav-container {
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        nav ul {
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        nav ul {
+            gap: 10px;
+        }
+        
+        nav a {
+            padding: 6px 12px;
+            font-size: 0.9rem;
+        }
+    }
+</style>
+
+<script>
+    // Update active navigation on page load
+    document.addEventListener('DOMContentLoaded', function() {
+        const currentPath = window.location.pathname;
+        const navLinks = document.querySelectorAll('nav a');
+        
+        navLinks.forEach(link => {
+            if (link.getAttribute('href') === currentPath) {
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
+            }
+        });
+    });
+</script>

@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - My CookBook</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Your existing index.html styles remain the same, I'm just adding the new sections */
+        
+        /* Category navigation styles */
+        .category-nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+
+        .category-btn {
+            background: white;
+            border: 2px solid var(--border-color);
+            padding: 15px 30px;
+            border-radius: var(--radius);
+            font-weight: 600;
+            text-decoration: none;
+            color: var(--text-color);
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .category-btn:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .category-btn.active {
+            background: var(--primary-gradient);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        /* Section styles */
+        .content-section {
+            margin: 60px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--text-color);
+            display: inline-block;
+            position: relative;
+        }
+
+        .section-header h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--primary-gradient);
+            margin: 15px auto;
+            border-radius: 2px;
+        }
+
+        .cooking-hacks-section {
+            border-left: 4px solid var(--primary-color);
+            padding-left: 20px;
+        }
+
+        .recipe-stories-section {
+            border-left: 4px solid var(--accent-color);
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="nav-container">
+            <div class="logo">My CookBook</div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="#cooking-hacks">Cooking Hacks</a></li>
+                    <li><a href="#recipe-stories">Recipe Stories</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero fade-in">
+        <div class="hero-text">
+            <h2>Welcome to My CookBook</h2>
+            <p>Discover amazing cooking hacks and inspiring recipe stories</p>
+            <a href="#cooking-hacks" class="hero-btn">Explore Content</a>
+        </div>
+    </section>
+
+    <!-- MAIN CONTENT -->
+    <main>
+        <div class="container">
+
+            <!-- QUICK NAVIGATION -->
+            <section class="category-nav">
+                <a href="#cooking-hacks" class="category-btn">
+                    <i class="fas fa-lightbulb"></i>
+                    Cooking Hacks
+                </a>
+                <a href="#recipe-stories" class="category-btn">
+                    <i class="fas fa-book-open"></i>
+                    Recipe Stories
+                </a>
+            </section>
+
+            <!-- COOKING HACKS SECTION -->
+            <section id="cooking-hacks" class="content-section cooking-hacks-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-lightbulb"></i> Cooking Hacks</h2>
+                    <p>Smart tricks and tips to make your cooking easier and more enjoyable</p>
+                </div>
+                <div class="post-list">
+                    
+                    <!-- Cooking Hack 1 -->
+                    <article class="post-item fade-in">
+                        <div class="post-image" style="background: var(--primary-gradient);"></div>
+                        <div class="post-item-content">
+                            <h4><a href="#">Creamier Scrambled Eggs</a></h4>
+                            <div class="post-meta">
+                                <span><i class="far fa-calendar"></i> November 15, 2024</span>
+                                <span><i class="fas fa-clock"></i> 2 min read</span>
+                            </div>
+                            <p>Add a spoonful of mayonnaise instead of milk for unbelievably rich and creamy scrambled eggs.</p>
+                            <a href="#" class="read-more">
+                                Read More <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+                    
+                    <!-- Cooking Hack 2 -->
+                    <article class="post-item fade-in">
+                        <div class="post-image" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%);"></div>
+                        <div class="post-item-content">
+                            <h4><a href="#">No-Weep Onion Chopping</a></h4>
+                            <div class="post-meta">
+                                <span><i class="far fa-calendar"></i> November 14, 2024</span>
+                                <span><i class="fas fa-clock"></i> 1 min read</span>
+                            </div>
+                            <p>Chill your onions in the fridge for 30 minutes before chopping to prevent burning eyes.</p>
+                            <a href="#" class="read-more">
+                                Read More <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+                    
+                    <!-- Cooking Hack 3 -->
+                    <article class="post-item fade-in">
+                        <div class="post-image" style="background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);"></div>
+                        <div class="post-item-content">
+                            <h4><a href="#">2-Minute Microwave Lemonade</a></h4>
+                            <div class="post-meta">
+                                <span><i class="far fa-calendar"></i> November 13, 2024</span>
+                                <span><i class="fas fa-clock"></i> 2 min read</span>
+                            </div>
+                            <p>Microwave lemons for 20 seconds before juicing to get twice the yield with half the effort.</p>
+                            <a href="#" class="read-more">
+                                Read More <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+                    
+                    <!-- Cooking Hack 4 -->
+                    <article class="post-item fade-in">
+                        <div class="post-image" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);"></div>
+                        <div class="post-item-content">
+                            <h4><a href="#">Fluffiest Microwave Rice</a></h4>
+                            <div class="post-meta">
+                                <span><i class="far fa-calendar"></i> November 12, 2024</span>
+                                <span><i class="fas fa-clock"></i> 3 min read</span>
+                            </div>
+                            <p>Cook rice in the microwave with a generous amount of water, then let it steam in a covered bowl.</p>
+                            <a href="#" class="read-more">
+                                Read More <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                </div>
+            </section>
+
+            <!-- RECIPE STORIES SECTION -->
+            <section id="recipe-stories" class="content-section recipe-stories-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-book-open"></i> Recipe Stories</h2>
+                    <p>Heartwarming stories behind beloved recipes and family traditions</p>
+                </div>
+                <div class="post-list">
+                    
+                    <!-- Recipe Story 1 -->
+                    <article class="post-item fade-in">
+                        <div class="post-image" style="background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);"></div>
+                        <div class="post-item-content">
+                            <h4><a href="#">Grandma's Sunday Gravy</a></h4>
+                            <div class="post-meta">
+                                <span><i class="far fa-calendar"></i> November 15, 2024</span>
+                                <span><i class="fas fa-clock"></i> 4 min read</span>
+                            </div>
+                            <p>The story of how a simple pot of tomato sauce became the anchor of our family for generations.</p>
+                            <a href="#" class="read-more">
+                                Read More <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+                    
+                    <!-- Recipe Story 2 -->
+                    <article class="post-item fade-in">
+                        <div class="post-image" style="background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);"></div>
+                        <div class="post-item-content">
+                            <h4><a href="#">The Curry That Changed Everything</a></h4>
+                            <div class="post-meta">
+                                <span><i class="far fa-calendar"></i> November 14, 2024</span>
+                                <span><i class="fas fa-clock"></i> 5 min read</span>
+                            </div>
+                            <p>Lost on a rainy night in Kerala, a stranger's kindness offered more than just shelter from the storm.</p>
+                            <a href="#" class="read-more">
+                                Read More <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+                    
+                    <!-- Recipe Story 3 -->
+                    <article class="post-item fade-in">
+                        <div class="post-image" style="background: linear-gradient(135deg, #84cc16 0%, #65a30d 100%);"></div>
+                        <div class="post-item-content">
+                            <h4><a href="#">A Pie for the Solstice</a></h4>
+                            <div class="post-meta">
+                                <span><i class="far fa-calendar"></i> November 13, 2024</span>
+                                <span><i class="fas fa-clock"></i> 3 min read</span>
+                            </div>
+                            <p>How baking a spiced pear and cranberry pie became my personal ritual for welcoming the return of light.</p>
+                            <a href="#" class="read-more">
+                                Read More <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+                    
+                    <!-- Recipe Story 4 -->
+                    <article class="post-item fade-in">
+                        <div class="post-image" style="background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);"></div>
+                        <div class="post-item-content">
+                            <h4><a href="#">The First Omelet</a></h4>
+                            <div class="post-meta">
+                                <span><i class="far fa-calendar"></i> November 12, 2024</span>
+                                <span><i class="fas fa-clock"></i> 3 min read</span>
+                            </div>
+                            <p>My father taught me more than how to make an omelet; he taught me confidence and patience.</p>
+                            <a href="#" class="read-more">
+                                Read More <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                </div>
+            </section>
+
+            <!-- Your existing Features section -->
+            <section class="features">
+                <div class="section-title">
+                    <h3>Why Choose CookBook</h3>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card fade-in">
+                        <div class="feature-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h3>Smart Hacks</h3>
+                        <p>Discover clever cooking tricks that save time and elevate your meals.</p>
+                    </div>
+                    <div class="feature-card fade-in">
+                        <div class="feature-icon">
+                            <i class="fas fa-book-open"></i>
+                        </div>
+                        <h3>Inspiring Stories</h3>
+                        <p>Read heartfelt stories behind beloved recipes and family traditions.</p>
+                    </div>
+                    <div class="feature-card fade-in">
+                        <div class="feature-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h3>From the Heart</h3>
+                        <p>Every recipe and story comes from real experiences and traditions.</p>
+                    </div>
+                    <div class="feature-card fade-in">
+                        <div class="feature-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Community</h3>
+                        <p>Join food lovers sharing their culinary journeys and discoveries.</p>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>My CookBook</h3>
+                    <p>Your destination for amazing cooking hacks and inspiring recipe stories. Join our culinary community!</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="#cooking-hacks"><i class="fas fa-chevron-right"></i> Cooking Hacks</a></li>
+                        <li><a href="#recipe-stories"><i class="fas fa-chevron-right"></i> Recipe Stories</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-envelope"></i> hello@mycookbook.com</a></li>
+                        <li><a href="#"><i class="fas fa-phone"></i> +1 (555) 123-4567</a></li>
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> Food Street, Culinary City</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 My CookBook. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple animation on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animation = 'fadeInUp 0.8s ease-out forwards';
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            fadeElements.forEach(el => {
+                el.style.opacity = '0';
+                observer.observe(el);
+            });
+
+            // Smooth scrolling for navigation
+            document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

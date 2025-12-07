@@ -1,0 +1,204 @@
+---
+layout: base.njk
+pagination:
+  data: recipeStories
+  size: 1
+  alias: story
+  addAllPagesToCollections: true
+permalink: "/recipe-stories/{{ story.slug }}/index.html"
+eleventyComputed:
+  title: "{{ story.title }} - My CookBook"
+  description: "{{ story.description }}"
+---
+
+<article class="recipe-story-single">
+    <header class="recipe-header">
+        {% if story.featuredImage %}
+        <div class="recipe-hero-image">
+            <img src="{{ story.featuredImage }}" alt="{{ story.title }}">
+        </div>
+        {% endif %}
+        
+        <div class="recipe-header-content">
+            <h1>{{ story.title }}</h1>
+            <div class="recipe-meta">
+                <span class="publish-date">
+                    <i class="far fa-calendar"></i>
+                    {{ story.date }}
+                </span>
+                {% if story.author %}
+                <span class="author">
+                    <i class="fas fa-user"></i>
+                    {{ story.author }}
+                </span>
+                {% endif %}
+            </div>
+            {% if story.description %}
+            <p class="recipe-excerpt">{{ story.description }}</p>
+            {% endif %}
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="recipe-content">
+            {% if story.content %}
+            <div class="content-body">
+                {{ story.content | safe }}
+            </div>
+            {% else %}
+            <div class="no-content">
+                <p>Content coming soon!</p>
+            </div>
+            {% endif %}
+
+            <div class="recipe-footer">
+                <a href="/recipe-stories/" class="back-button">
+                    <i class="fas fa-arrow-left"></i>
+                    Back to All Recipe Stories
+                </a>
+            </div>
+        </div>
+    </div>
+</article>
+
+<style>
+    .recipe-story-single {
+        min-height: 100vh;
+    }
+
+    .recipe-hero-image {
+        width: 100%;
+        height: 400px;
+        overflow: hidden;
+    }
+
+    .recipe-hero-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .recipe-header-content {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 40px 20px;
+        text-align: center;
+    }
+
+    .recipe-header-content h1 {
+        font-size: 3rem;
+        color: var(--navy);
+        margin-bottom: 20px;
+        font-family: 'Georgia', serif;
+        line-height: 1.2;
+    }
+
+    .recipe-meta {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        margin-bottom: 30px;
+        color: #666;
+        font-size: 1rem;
+    }
+
+    .recipe-meta span {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .recipe-excerpt {
+        font-size: 1.3rem;
+        line-height: 1.6;
+        color: #555;
+        font-style: italic;
+        border-left: 4px solid var(--coral);
+        padding-left: 20px;
+        margin: 30px 0;
+    }
+
+    .recipe-content {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 0 20px 60px;
+    }
+
+    .content-body {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: #333;
+    }
+
+    .content-body h2 {
+        color: var(--navy);
+        margin: 40px 0 20px;
+        font-size: 2rem;
+    }
+
+    .content-body h3 {
+        color: var(--coral);
+        margin: 30px 0 15px;
+        font-size: 1.5rem;
+    }
+
+    .content-body p {
+        margin-bottom: 20px;
+    }
+
+    .content-body ul, .content-body ol {
+        margin: 20px 0;
+        padding-left: 30px;
+    }
+
+    .content-body li {
+        margin-bottom: 10px;
+    }
+
+    .recipe-footer {
+        margin-top: 60px;
+        padding-top: 30px;
+        border-top: 1px solid #eee;
+        text-align: center;
+    }
+
+    .back-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 12px 24px;
+        background: var(--navy);
+        color: white;
+        text-decoration: none;
+        border-radius: 25px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+
+    .back-button:hover {
+        background: var(--coral);
+        transform: translateY(-2px);
+    }
+
+    .no-content {
+        text-align: center;
+        padding: 60px 20px;
+        color: #666;
+        font-style: italic;
+    }
+
+    @media (max-width: 768px) {
+        .recipe-header-content h1 {
+            font-size: 2.2rem;
+        }
+
+        .recipe-meta {
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .recipe-hero-image {
+            height: 300px;
+        }
+    }
+</style>

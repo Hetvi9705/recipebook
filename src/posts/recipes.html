@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipes - My CookBook</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --coral: #FF6B6B;
+            --peach: #FFB347;
+            --mint: #4ECDC4;
+            --lavender: #95E1D3;
+            --navy: #2C3E50;
+            --charcoal: #34495E;
+            --warm-white: #FFFBF5;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background: var(--warm-white);
+            color: var(--navy);
+            line-height: 1.7;
+        }
+
+        /* HEADER */
+        header {
+            background: linear-gradient(135deg, var(--coral) 0%, var(--peach) 100%);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 700;
+            color: white;
+            font-family: 'Georgia', serif;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .logo i {
+            font-size: 2.5rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            padding: 10px 20px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-family: 'Arial', sans-serif;
+            font-size: 1rem;
+        }
+
+        nav a:hover, nav a.active {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        /* MAIN CONTENT */
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .recipe-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .recipe-title {
+            font-size: 3rem;
+            color: var(--coral);
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .recipe-meta {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            color: #666;
+            font-size: 1rem;
+        }
+
+        .recipe-meta span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .recipe-image {
+            width: 100%;
+            max-height: 500px;
+            object-fit: cover;
+            border-radius: 20px;
+            margin: 30px 0;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .recipe-section {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            margin: 30px 0;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+            border-left: 5px solid var(--coral);
+        }
+
+        .recipe-section h2 {
+            font-size: 2rem;
+            color: var(--navy);
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .recipe-section p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .ingredients-box {
+            background: #f9f9f9;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+
+        .ingredients-box ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .ingredients-box li {
+            padding: 12px 0;
+            border-bottom: 1px solid #e0e0e0;
+            font-size: 1.05rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .ingredients-box li:before {
+            content: "✓";
+            color: var(--mint);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .ingredients-box li:last-child {
+            border-bottom: none;
+        }
+
+        /* FOOTER */
+        footer {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--charcoal) 100%);
+            color: white;
+            padding: 60px 0 30px;
+            margin-top: 80px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+            max-width: 1200px;
+            margin: 0 auto 40px;
+            padding: 0 20px;
+        }
+
+        .footer-column h3 {
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+            font-family: 'Georgia', serif;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #BDC3C7;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-links a:hover {
+            color: var(--coral);
+            gap: 15px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--coral);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #95A5A6;
+            font-size: 0.9rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .recipe-title {
+                font-size: 2rem;
+            }
+
+            .recipe-section {
+                padding: 25px;
+            }
+
+            .nav-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            nav ul {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-utensils"></i>
+                My CookBook
+            </a>
+            <h2 id="liveRecipeTitle"></h2>
+            <img id="liveRecipeImage" alt="Recipe Image">
+            <p id="liveRecipeInstructions"></p>
+
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="recipes.html" class="active">Recipes</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="recipe-section">
+    <h2><i class="fas fa-bolt"></i> Live Recipe</h2>
+    <h3 id="liveRecipeTitle" class="recipe-title"></h3>
+    <img id="liveRecipeImage" alt="Live Recipe Image" class="recipe-image" style="display:none;">
+    <div class="ingredients-box" id="liveRecipeIngredients" style="display:none;">
+        <ul></ul>
+    </div>
+    <p id="liveRecipeInstructions"></p>
+</div>
+
+<script>
+async function fetchLiveRecipe() {
+    try {
+        const res = await fetch("/.netlify/functions/getLiveRecipe");
+        const recipe = await res.json();
+
+        document.getElementById("liveRecipeTitle").innerText = recipe.strMeal;
+        const img = document.getElementById("liveRecipeImage");
+        img.src = recipe.strMealThumb;
+        img.style.display = 'block';
+
+        const instructions = document.getElementById("liveRecipeInstructions");
+        instructions.innerText = recipe.strInstructions;
+
+        const ingredientsBox = document.getElementById("liveRecipeIngredients");
+        const ul = ingredientsBox.querySelector("ul");
+        for (let i = 1; i <= 20; i++) {
+            const ingredient = recipe[`strIngredient${i}`];
+            const measure = recipe[`strMeasure${i}`];
+            if (ingredient && ingredient.trim() !== "") {
+                const li = document.createElement("li");
+                li.innerText = `${measure} ${ingredient}`;
+                ul.appendChild(li);
+            }
+        }
+        ingredientsBox.style.display = 'block';
+    } catch (error) {
+        console.error("Failed to fetch live recipe:", error);
+    }
+}
+
+fetchLiveRecipe();
+</script>
+
+
+    <main class="container">
+        <div class="recipe-header">
+            <h1 class="recipe-title">Creamy Chicken Alfredo</h1>
+            <div class="recipe-meta">
+                <span><i class="far fa-calendar"></i> Published: November 15, 2025</span>
+                <span><i class="fas fa-user"></i> Author: Hetvi Patel</span>
+            </div>
+        </div>
+
+        <img src="https://images.unsplash.com/photo-1645112411341-6c4fd023714a?w=800" alt="Creamy Chicken Alfredo" class="recipe-image">
+
+        <div class="recipe-section">
+            <h2><i class="fas fa-info-circle"></i> Description</h2>
+            <p>Indulge in this restaurant-quality Chicken Alfredo made right at home. Juicy chicken, al dente pasta, and a velvety Parmesan cream sauce come together for an unforgettable meal.</p>
+        </div>
+
+        <div class="recipe-section">
+            <h2><i class="fas fa-book"></i> Recipe Details</h2>
+            <p>This Chicken Alfredo recipe features tender chicken breast and perfectly cooked fettuccine coated in a rich, creamy Parmesan sauce. It's comfort food at its finest and easier to make than you think!</p>
+        </div>
+
+        <div class="recipe-section">
+            <h2><i class="fas fa-list"></i> Ingredients</h2>
+            <div class="ingredients-box">
+                <ul>
+                    <li>1 lb fettuccine pasta</li>
+                    <li>2 chicken breasts, cut into strips</li>
+                    <li>4 tablespoons butter</li>
+                    <li>4 cloves garlic, minced</li>
+                    <li>2 cups heavy cream</li>
+                    <li>1½ cups grated Parmesan cheese</li>
+                    <li>Salt and black pepper</li>
+                    <li>Fresh parsley for garnish</li>
+                    <li>Olive oil for cooking</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>My CookBook</h3>
+                <p>Exploring ideas, Good Food, Good Mood. Your destination for amazing recipes and culinary inspiration.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-pinterest"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                    <li><a href="recipes.html"><i class="fas fa-chevron-right"></i> Recipes</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> About</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contact Info</h3>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fas fa-envelope"></i> hello@mycookbook.com</a></li>
+                    <li><a href="#"><i class="fas fa-phone"></i> +1 (555) 123-4567</a></li>
+                    <li><a href="#"><i class="fas fa-map-marker-alt"></i> Food Street, Culinary City</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 My CookBook. All rights reserved.</p>
+        </div>
+    </footer>
+    
+</body>
+</html>

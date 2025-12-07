@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cooking Hacks - My CookBook</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        /* Reuse your existing styles */
+        .category-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .category-header h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <div class="logo">My CookBook</div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="cooking-hacks.html" class="active">Cooking Hacks</a></li>
+                    <li><a href="recipe-stories.html">Recipe Stories</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="category-header">
+                <h1><i class="fas fa-lightbulb"></i> Cooking Hacks</h1>
+                <p>Smart tricks and tips to make your cooking easier and more enjoyable</p>
+            </div>
+
+            <div class="post-list">
+                <!-- Add your cooking hack posts here -->
+                <article class="post-item fade-in">
+                    <div class="post-image" style="background: var(--primary-gradient);"></div>
+                    <div class="post-item-content">
+                        <h4><a href="posts/creamy-scrambled-eggs-hack.html">Creamier Scrambled Eggs</a></h4>
+                        <div class="post-meta">
+                            <span><i class="far fa-calendar"></i> November 15, 2024</span>
+                            <span><i class="fas fa-clock"></i> 2 min read</span>
+                        </div>
+                        <p>Add a spoonful of mayonnaise instead of milk for unbelievably rich and creamy scrambled eggs.</p>
+                        <a href="posts/creamy-scrambled-eggs-hack.html" class="read-more">
+                            Read More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+                <!-- Add more cooking hack posts... -->
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <!-- Same footer as index.html -->
+    </footer>
+</body>
+</html>

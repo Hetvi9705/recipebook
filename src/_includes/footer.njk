@@ -1,0 +1,133 @@
+<!-- src/_includes/footer.njk -->
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>My CookBook</h3>
+                <p>Your destination for amazing cooking hacks and inspiring recipe stories. Join our culinary community!</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-pinterest"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="/"><i class="fas fa-chevron-right"></i> Home</a></li>
+                    <li><a href="/cooking-hacks/"><i class="fas fa-chevron-right"></i> Cooking Hacks</a></li>
+                    <li><a href="/recipe-stories/"><i class="fas fa-chevron-right"></i> Recipe Stories</a></li>
+                    <li><a href="/about/"><i class="fas fa-chevron-right"></i> About</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contact Info</h3>
+                <ul class="footer-links">
+                    <li><a href="mailto:hello@mycookbook.com"><i class="fas fa-envelope"></i> hello@mycookbook.com</a></li>
+                    <li><a href="tel:+15551234567"><i class="fas fa-phone"></i> +1 (555) 123-4567</a></li>
+                    <li><a href="#"><i class="fas fa-map-marker-alt"></i> Food Street, Culinary City</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2024 My CookBook. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<style>
+    /* Footer Styles */
+    footer {
+        background: var(--text-color);
+        color: white;
+        padding: 60px 0 30px;
+        margin-top: 80px;
+    }
+
+    .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .footer-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 40px;
+        margin-bottom: 40px;
+    }
+
+    .footer-column h3 {
+        margin-bottom: 20px;
+        font-size: 1.3rem;
+        position: relative;
+        display: inline-block;
+    }
+
+    .footer-column h3::after {
+        content: '';
+        display: block;
+        width: 40px;
+        height: 3px;
+        background: var(--primary-color);
+        margin-top: 8px;
+        border-radius: 2px;
+    }
+
+    .footer-links {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .footer-links li {
+        margin-bottom: 12px;
+    }
+
+    .footer-links a {
+        color: #cbd5e1;
+        text-decoration: none;
+        transition: var(--transition);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .footer-links a:hover {
+        color: white;
+        gap: 15px;
+    }
+
+    .social-links {
+        display: flex;
+        gap: 15px;
+        margin-top: 20px;
+    }
+
+    .social-links a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        color: white;
+        text-decoration: none;
+        transition: var(--transition);
+    }
+
+    .social-links a:hover {
+        background: var(--primary-color);
+        transform: translateY(-3px);
+    }
+
+    .copyright {
+        text-align: center;
+        padding-top: 30px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        color: #94a3b8;
+        font-size: 0.9rem;
+    }
+</style>
